@@ -1,0 +1,55 @@
+<!DOCTYPE HTML-->
+<html>
+<head>
+<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css"  />
+<link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.css" />
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+<script type="text/javascript" src="phonegap.js"></script>
+<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript">
+var destinationType;
+
+$("document").ready(function inicio(){
+    
+$("#btnCamara").tap(function pulsacion(){
+    
+ navigator.camara.getpicture(onSuccess,onFail, {quality:50,destinationType: Camera.DestinationType.FILE_URI});
+ function onSuccess(imageURI){
+     var image=document.getElementById("myImage");
+     
+     
+     image.src=imageURI;
+ }
+ function onFail(message)
+ {
+     alert('Failed because'+message);
+ }
+});
+});
+</script>
+</head>
+
+<body>
+
+<div data-role="page" id="principal" >
+    <div data-role="header">
+                 
+        <h1  id="encabezado" ></h1>
+             </div>
+              <div data-role="content">
+
+                  <input type="button" value="acceder a camara" id="btnCamara"/>   
+                  <img src="" id="myImage">
+                  
+
+     </div>
+    
+    
+    
+<div data-role="footer">
+
+               </div>
+</div>
+
+</html>
